@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58E4A3AE1D9110764E33C0A0 /* libPods-RedditMemes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0ADFAE31E7779FEE8BD26F /* libPods-RedditMemes.a */; };
 		6B6AE2EC29F18B4D00B8AE02 /* RedditMemesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE2EB29F18B4D00B8AE02 /* RedditMemesApp.swift */; };
 		6B6AE2EE29F18B4D00B8AE02 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE2ED29F18B4D00B8AE02 /* ContentView.swift */; };
 		6B6AE2F029F18B4E00B8AE02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B6AE2EF29F18B4E00B8AE02 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C0ADFAE31E7779FEE8BD26F /* libPods-RedditMemes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RedditMemes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B6AE2E829F18B4D00B8AE02 /* RedditMemes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditMemes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B6AE2EB29F18B4D00B8AE02 /* RedditMemesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditMemesApp.swift; sourceTree = "<group>"; };
 		6B6AE2ED29F18B4D00B8AE02 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +46,8 @@
 		6B6AE30229F18B4F00B8AE02 /* RedditMemesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditMemesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B6AE30629F18B4F00B8AE02 /* RedditMemesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditMemesUITests.swift; sourceTree = "<group>"; };
 		6B6AE30829F18B4F00B8AE02 /* RedditMemesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditMemesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6E1FF26989D7AA1051EF8476 /* Pods-RedditMemes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditMemes.release.xcconfig"; path = "Target Support Files/Pods-RedditMemes/Pods-RedditMemes.release.xcconfig"; sourceTree = "<group>"; };
+		F6A588267F183C751A385075 /* Pods-RedditMemes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditMemes.debug.xcconfig"; path = "Target Support Files/Pods-RedditMemes/Pods-RedditMemes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58E4A3AE1D9110764E33C0A0 /* libPods-RedditMemes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +76,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1675B6EAE170A8E1A22833AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F6A588267F183C751A385075 /* Pods-RedditMemes.debug.xcconfig */,
+				6E1FF26989D7AA1051EF8476 /* Pods-RedditMemes.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2291A20EADD40D7D9C9ADA41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C0ADFAE31E7779FEE8BD26F /* libPods-RedditMemes.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6B6AE2DF29F18B4D00B8AE02 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +100,8 @@
 				6B6AE2FB29F18B4F00B8AE02 /* RedditMemesTests */,
 				6B6AE30529F18B4F00B8AE02 /* RedditMemesUITests */,
 				6B6AE2E929F18B4D00B8AE02 /* Products */,
+				1675B6EAE170A8E1A22833AC /* Pods */,
+				2291A20EADD40D7D9C9ADA41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B6AE30C29F18B4F00B8AE02 /* Build configuration list for PBXNativeTarget "RedditMemes" */;
 			buildPhases = (
+				B09B4B3AB052DC928C1FF20B /* [CP] Check Pods Manifest.lock */,
 				6B6AE2E429F18B4D00B8AE02 /* Sources */,
 				6B6AE2E529F18B4D00B8AE02 /* Frameworks */,
 				6B6AE2E629F18B4D00B8AE02 /* Resources */,
+				6B6AE31529F18CA900B8AE02 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -251,6 +277,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B6AE31529F18CA900B8AE02 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		B09B4B3AB052DC928C1FF20B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RedditMemes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6B6AE2E429F18B4D00B8AE02 /* Sources */ = {
@@ -411,6 +479,7 @@
 		};
 		6B6AE30D29F18B4F00B8AE02 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6A588267F183C751A385075 /* Pods-RedditMemes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -443,6 +512,7 @@
 		};
 		6B6AE30E29F18B4F00B8AE02 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E1FF26989D7AA1051EF8476 /* Pods-RedditMemes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
