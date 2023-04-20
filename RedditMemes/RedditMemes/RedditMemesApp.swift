@@ -10,10 +10,13 @@ import SwiftUI
 @main
 struct RedditMemesApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    let initialSettings = InitialSettings()
 
     var body: some Scene {
         WindowGroup {
-            OnboardingView(viewModel: OnboardingViewModel())
+            InitialView()
+                .environmentObject(initialSettings)
+//            OnboardingView(viewModel: OnboardingViewModel())
         }
     }
 }

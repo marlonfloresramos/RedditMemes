@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingPageView: View {
+    @EnvironmentObject var initialSettings: InitialSettings
     let page: OnboardingPage
 
     var body: some View {
@@ -34,7 +35,7 @@ struct OnboardingPageView: View {
                     }
                 }
                 Button {
-                    //
+                    initialSettings.state = .showRequestPermission
                 } label: {
                     Text("Continue as a GUEST")
                         .foregroundColor(Color.black)
