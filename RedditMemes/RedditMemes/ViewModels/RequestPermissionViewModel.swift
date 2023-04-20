@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 enum RequestPages {
     case camera
     case pushNotifications
@@ -15,6 +16,7 @@ enum RequestPages {
 class RequestPermissionViewModel: ObservableObject {
     var pages: [RequestPermissionPage] = [
         RequestPermissionPage(
+            type: .camera,
             imageName: "RequestPermission/camera",
             title: "Camera Access",
             subTitle: "Please allow access to your camera to take photos",
@@ -22,6 +24,7 @@ class RequestPermissionViewModel: ObservableObject {
             secondaryButton: "Cancel"
         ),
         RequestPermissionPage(
+            type: .pushNotifications,
             imageName: "RequestPermission/push",
             title: "Enable Push",
             subTitle: "Enable push notifications to let send you personal news and updates.",
@@ -29,6 +32,7 @@ class RequestPermissionViewModel: ObservableObject {
             secondaryButton: "Cancel"
         ),
         RequestPermissionPage(
+            type: .location,
             imageName: "RequestPermission/location",
             title: "Enable location services",
             subTitle: "We wants to access your location only to provide a better experience by helping you find new friends nearby",

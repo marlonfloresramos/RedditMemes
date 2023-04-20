@@ -9,6 +9,7 @@ import Foundation
 
 struct RequestPermissionPage: Identifiable {
     let id = UUID()
+    let type: RequestPages
     let imageName: String
     let title: String
     let subTitle: String
