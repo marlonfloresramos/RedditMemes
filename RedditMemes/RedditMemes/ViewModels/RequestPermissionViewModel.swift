@@ -59,6 +59,10 @@ class RequestPermissionViewModel: ObservableObject {
             permissionsManager.requestCameraPermission { accessGranted in
                 completion(accessGranted)
             }
+        case .pushNotifications:
+            permissionsManager.requestPushNotificationsPermission { accessGranted in
+                completion(accessGranted)
+            }
         default:
             return
         }
