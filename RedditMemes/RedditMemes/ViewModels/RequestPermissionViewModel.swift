@@ -14,6 +14,12 @@ enum RequestPages {
 }
 
 class RequestPermissionViewModel: ObservableObject {
+    let permissionsManager: PermissionsManagerRepresentable
+
+    init(permissionsManager: PermissionsManagerRepresentable = PermissionsManager.shared) {
+        self.permissionsManager = permissionsManager
+    }
+
     var pages: [RequestPermissionPage] = [
         RequestPermissionPage(
             type: .camera,
@@ -45,6 +51,17 @@ class RequestPermissionViewModel: ObservableObject {
 
     var page: RequestPermissionPage {
         return pages[currentPage]
+    }
+    
+    func requestPermission(completion: @escaping (Bool) -> ()) {
+        switch page.type {
+        case .camera:
+            permissionsManager.requestCameraPermission { accessGranted in
+                completion(accessGranted)
+            }
+        default:
+            return
+        }
     }
 
     func goToNextScreen(next: () -> Void, flowFinished: () -> Void) {

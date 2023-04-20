@@ -31,7 +31,13 @@ struct RequestPermissionView: View {
                 }
                 VStack(spacing: 24) {
                     CustomButton(type: .primary, label: viewModel.page.primaryButton) {
-                        //
+                        viewModel.requestPermission { _ in
+                            viewModel.goToNextScreen {
+                                goToNextScreen = true
+                            } flowFinished: {
+                                initialSettings.state = .showHome
+                            }
+                        }
                     }
                     .frame(height: 50)
                     CustomButton(type: .clear, label: viewModel.page.secondaryButton) {
