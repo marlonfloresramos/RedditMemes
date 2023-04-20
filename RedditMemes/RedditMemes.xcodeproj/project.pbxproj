@@ -138,13 +138,13 @@
 		6B6AE2EA29F18B4D00B8AE02 /* RedditMemes */ = {
 			isa = PBXGroup;
 			children = (
+				6B6AE2EB29F18B4D00B8AE02 /* RedditMemesApp.swift */,
+				6B6AE31F29F19D5800B8AE02 /* Application */,
+				6B6AE32229F1A76B00B8AE02 /* Views */,
 				6B6AE32B29F1BDA400B8AE02 /* ViewModels */,
 				6B6AE32829F1BC6B00B8AE02 /* Models */,
 				6B6AE32529F1AEB200B8AE02 /* Components */,
-				6B6AE32229F1A76B00B8AE02 /* Views */,
-				6B6AE31F29F19D5800B8AE02 /* Application */,
 				6B6AE31D29F1953F00B8AE02 /* LaunchScreen.storyboard */,
-				6B6AE2EB29F18B4D00B8AE02 /* RedditMemesApp.swift */,
 				6B6AE2EF29F18B4E00B8AE02 /* Assets.xcassets */,
 				6B6AE2F129F18B4E00B8AE02 /* Preview Content */,
 			);
@@ -188,11 +188,11 @@
 		6B6AE32229F1A76B00B8AE02 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6B6AE33029F1C67900B8AE02 /* InitialView.swift */,
 				6B6AE2ED29F18B4D00B8AE02 /* OnboardingView.swift */,
 				6B6AE32329F1A85800B8AE02 /* OnboardingPageView.swift */,
-				6B6AE33029F1C67900B8AE02 /* InitialView.swift */,
-				6B6AE33229F1C84D00B8AE02 /* HomeView.swift */,
 				6B6AE33429F1CCD200B8AE02 /* RequestPermissionView.swift */,
+				6B6AE33229F1C84D00B8AE02 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
