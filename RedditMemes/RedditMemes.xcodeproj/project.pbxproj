@@ -16,6 +16,7 @@
 		6B6AE30729F18B4F00B8AE02 /* RedditMemesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE30629F18B4F00B8AE02 /* RedditMemesUITests.swift */; };
 		6B6AE30929F18B4F00B8AE02 /* RedditMemesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE30829F18B4F00B8AE02 /* RedditMemesUITestsLaunchTests.swift */; };
 		6B6AE31E29F1953F00B8AE02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B6AE31D29F1953F00B8AE02 /* LaunchScreen.storyboard */; };
+		6B6AE32129F19D6B00B8AE02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE32029F19D6B00B8AE02 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		6B6AE30629F18B4F00B8AE02 /* RedditMemesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditMemesUITests.swift; sourceTree = "<group>"; };
 		6B6AE30829F18B4F00B8AE02 /* RedditMemesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditMemesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6B6AE31D29F1953F00B8AE02 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6B6AE32029F19D6B00B8AE02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E1FF26989D7AA1051EF8476 /* Pods-RedditMemes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditMemes.release.xcconfig"; path = "Target Support Files/Pods-RedditMemes/Pods-RedditMemes.release.xcconfig"; sourceTree = "<group>"; };
 		F6A588267F183C751A385075 /* Pods-RedditMemes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditMemes.debug.xcconfig"; path = "Target Support Files/Pods-RedditMemes/Pods-RedditMemes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 		6B6AE2EA29F18B4D00B8AE02 /* RedditMemes */ = {
 			isa = PBXGroup;
 			children = (
+				6B6AE31F29F19D5800B8AE02 /* Application */,
 				6B6AE31D29F1953F00B8AE02 /* LaunchScreen.storyboard */,
 				6B6AE2EB29F18B4D00B8AE02 /* RedditMemesApp.swift */,
 				6B6AE2ED29F18B4D00B8AE02 /* ContentView.swift */,
@@ -152,6 +155,14 @@
 				6B6AE30829F18B4F00B8AE02 /* RedditMemesUITestsLaunchTests.swift */,
 			);
 			path = RedditMemesUITests;
+			sourceTree = "<group>";
+		};
+		6B6AE31F29F19D5800B8AE02 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6B6AE32029F19D6B00B8AE02 /* AppDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B6AE32129F19D6B00B8AE02 /* AppDelegate.swift in Sources */,
 				6B6AE2EE29F18B4D00B8AE02 /* ContentView.swift in Sources */,
 				6B6AE2EC29F18B4D00B8AE02 /* RedditMemesApp.swift in Sources */,
 			);
