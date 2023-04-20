@@ -15,8 +15,6 @@ struct OnboardingPageView: View {
         VStack(spacing: 54) {
             VStack(spacing: 46) {
                 Image(page.imageName)
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
                 VStack(spacing: 23) {
                     Text(page.title)
                         .font(Font.system(size: 36).weight(.semibold))

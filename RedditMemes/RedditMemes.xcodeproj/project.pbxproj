@@ -25,6 +25,8 @@
 		6B6AE33129F1C67900B8AE02 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE33029F1C67900B8AE02 /* InitialView.swift */; };
 		6B6AE33329F1C84D00B8AE02 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE33229F1C84D00B8AE02 /* HomeView.swift */; };
 		6B6AE33529F1CCD200B8AE02 /* RequestPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE33429F1CCD200B8AE02 /* RequestPermissionView.swift */; };
+		6B6AE33729F1D2FA00B8AE02 /* RequestPermissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE33629F1D2FA00B8AE02 /* RequestPermissionViewModel.swift */; };
+		6B6AE33929F1D32800B8AE02 /* RequestPermissionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE33829F1D32800B8AE02 /* RequestPermissionPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		6B6AE33029F1C67900B8AE02 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		6B6AE33229F1C84D00B8AE02 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		6B6AE33429F1CCD200B8AE02 /* RequestPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionView.swift; sourceTree = "<group>"; };
+		6B6AE33629F1D2FA00B8AE02 /* RequestPermissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionViewModel.swift; sourceTree = "<group>"; };
+		6B6AE33829F1D32800B8AE02 /* RequestPermissionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionPage.swift; sourceTree = "<group>"; };
 		6E1FF26989D7AA1051EF8476 /* Pods-RedditMemes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditMemes.release.xcconfig"; path = "Target Support Files/Pods-RedditMemes/Pods-RedditMemes.release.xcconfig"; sourceTree = "<group>"; };
 		F6A588267F183C751A385075 /* Pods-RedditMemes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditMemes.debug.xcconfig"; path = "Target Support Files/Pods-RedditMemes/Pods-RedditMemes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				6B6AE32929F1BC8600B8AE02 /* OnboardingPage.swift */,
+				6B6AE33829F1D32800B8AE02 /* RequestPermissionPage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				6B6AE32C29F1BDC400B8AE02 /* OnboardingViewModel.swift */,
+				6B6AE33629F1D2FA00B8AE02 /* RequestPermissionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -402,6 +408,8 @@
 				6B6AE32429F1A85800B8AE02 /* OnboardingPageView.swift in Sources */,
 				6B6AE33329F1C84D00B8AE02 /* HomeView.swift in Sources */,
 				6B6AE32F29F1C64300B8AE02 /* InitialSettings.swift in Sources */,
+				6B6AE33929F1D32800B8AE02 /* RequestPermissionPage.swift in Sources */,
+				6B6AE33729F1D2FA00B8AE02 /* RequestPermissionViewModel.swift in Sources */,
 				6B6AE2EC29F18B4D00B8AE02 /* RedditMemesApp.swift in Sources */,
 				6B6AE32729F1AED400B8AE02 /* CustomButton.swift in Sources */,
 				6B6AE33129F1C67900B8AE02 /* InitialView.swift in Sources */,

@@ -10,6 +10,7 @@ import SwiftUI
 enum CustomButtonType {
     case primary
     case secondary
+    case clear
 }
 
 struct CustomButton: View {
@@ -41,6 +42,12 @@ struct CustomButton: View {
                         Capsule(style: .continuous)
                             .stroke(Color.gray, style: StrokeStyle(lineWidth: 1))
                     )
+            case .clear:
+                Text(label)
+                    .font(Font.system(size: 18).weight(.semibold))
+                    .padding(10)
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(.gray)
             }
         }
     }

@@ -33,11 +33,11 @@ struct InitialView: View {
                 )
         )
     }
-    
+
     private func getRequestPermissionView() -> AnyView {
         return AnyView(
             NavigationStack {
-                RequestPermissionView()
+                RequestPermissionView(viewModel: RequestPermissionViewModel())
             }
             .transition(
                 AnyTransition.move(edge: .bottom)
