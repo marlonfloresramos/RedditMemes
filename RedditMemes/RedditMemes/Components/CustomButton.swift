@@ -29,14 +29,14 @@ struct CustomButton: View {
                     .padding(10)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(.white)
-                    .background(Color.orange)
+                    .background(CustomColor.primaryGradient)
                     .clipShape(Capsule())
             case .secondary:
                 Text(label)
                     .font(Font.system(size: 18).weight(.semibold))
                     .padding(10)
                     .frame(maxWidth: .infinity)
-                    .foregroundColor(.orange)
+                    .foregroundColor(CustomColor.orange2)
                     .background(Color.clear)
                     .overlay(
                         Capsule(style: .continuous)

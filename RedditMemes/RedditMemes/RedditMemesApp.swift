@@ -16,7 +16,6 @@ struct RedditMemesApp: App {
         WindowGroup {
             InitialView()
                 .environmentObject(initialSettings)
-//            OnboardingView(viewModel: OnboardingViewModel())
         }
     }
 }
