@@ -7,20 +7,45 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct OnboardingScreen: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack(spacing: 54) {
+            VStack(spacing: 46) {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                VStack(spacing: 23) {
+                    Text("One in All")
+                    Text("Increasing Prosperity With Positive Thinking")
+                }
+            }
+            VStack(spacing: 23) {
+                HStack {
+                    Button {
+                        //
+                    } label: {
+                        Text("Sign In")
+                    }
+                    Spacer()
+                    Button {
+                        //
+                    } label: {
+                        Text("Register")
+                    }
+                }
+                Button {
+                    //
+                } label: {
+                    Text("Continue as a GUEST")
+                }
+            }
         }
-        .padding()
+        .padding(20)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct OnboardingScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        OnboardingScreen()
     }
 }
