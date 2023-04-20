@@ -13,7 +13,7 @@ struct RedditMemesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingView(viewModel: OnboardingViewModel())
         }
     }
 }
