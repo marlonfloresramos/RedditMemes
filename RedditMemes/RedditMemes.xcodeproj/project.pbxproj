@@ -98,7 +98,6 @@
 		6B6AE2DF29F18B4D00B8AE02 = {
 			isa = PBXGroup;
 			children = (
-				6B6AE31D29F1953F00B8AE02 /* LaunchScreen.storyboard */,
 				6B6AE2EA29F18B4D00B8AE02 /* RedditMemes */,
 				6B6AE2FB29F18B4F00B8AE02 /* RedditMemesTests */,
 				6B6AE30529F18B4F00B8AE02 /* RedditMemesUITests */,
@@ -121,6 +120,7 @@
 		6B6AE2EA29F18B4D00B8AE02 /* RedditMemes */ = {
 			isa = PBXGroup;
 			children = (
+				6B6AE31D29F1953F00B8AE02 /* LaunchScreen.storyboard */,
 				6B6AE2EB29F18B4D00B8AE02 /* RedditMemesApp.swift */,
 				6B6AE2ED29F18B4D00B8AE02 /* ContentView.swift */,
 				6B6AE2EF29F18B4E00B8AE02 /* Assets.xcassets */,
