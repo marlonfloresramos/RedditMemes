@@ -144,13 +144,13 @@
 		6B6AE2EA29F18B4D00B8AE02 /* RedditMemes */ = {
 			isa = PBXGroup;
 			children = (
-				6B6AE33A29F1EAF300B8AE02 /* Resources */,
 				6B6AE2EB29F18B4D00B8AE02 /* RedditMemesApp.swift */,
 				6B6AE31F29F19D5800B8AE02 /* Application */,
+				6B6AE32829F1BC6B00B8AE02 /* Models */,
 				6B6AE32229F1A76B00B8AE02 /* Views */,
 				6B6AE32B29F1BDA400B8AE02 /* ViewModels */,
-				6B6AE32829F1BC6B00B8AE02 /* Models */,
 				6B6AE32529F1AEB200B8AE02 /* Components */,
+				6B6AE33A29F1EAF300B8AE02 /* Resources */,
 				6B6AE31D29F1953F00B8AE02 /* LaunchScreen.storyboard */,
 				6B6AE2EF29F18B4E00B8AE02 /* Assets.xcassets */,
 				6B6AE2F129F18B4E00B8AE02 /* Preview Content */,
