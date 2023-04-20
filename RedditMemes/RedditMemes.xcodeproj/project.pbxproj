@@ -15,6 +15,7 @@
 		6B6AE2FD29F18B4F00B8AE02 /* RedditMemesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE2FC29F18B4F00B8AE02 /* RedditMemesTests.swift */; };
 		6B6AE30729F18B4F00B8AE02 /* RedditMemesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE30629F18B4F00B8AE02 /* RedditMemesUITests.swift */; };
 		6B6AE30929F18B4F00B8AE02 /* RedditMemesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE30829F18B4F00B8AE02 /* RedditMemesUITestsLaunchTests.swift */; };
+		6B6AE31E29F1953F00B8AE02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B6AE31D29F1953F00B8AE02 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		6B6AE30229F18B4F00B8AE02 /* RedditMemesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditMemesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B6AE30629F18B4F00B8AE02 /* RedditMemesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditMemesUITests.swift; sourceTree = "<group>"; };
 		6B6AE30829F18B4F00B8AE02 /* RedditMemesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditMemesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6B6AE31D29F1953F00B8AE02 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E1FF26989D7AA1051EF8476 /* Pods-RedditMemes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditMemes.release.xcconfig"; path = "Target Support Files/Pods-RedditMemes/Pods-RedditMemes.release.xcconfig"; sourceTree = "<group>"; };
 		F6A588267F183C751A385075 /* Pods-RedditMemes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditMemes.debug.xcconfig"; path = "Target Support Files/Pods-RedditMemes/Pods-RedditMemes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 		6B6AE2DF29F18B4D00B8AE02 = {
 			isa = PBXGroup;
 			children = (
+				6B6AE31D29F1953F00B8AE02 /* LaunchScreen.storyboard */,
 				6B6AE2EA29F18B4D00B8AE02 /* RedditMemes */,
 				6B6AE2FB29F18B4F00B8AE02 /* RedditMemesTests */,
 				6B6AE30529F18B4F00B8AE02 /* RedditMemesUITests */,
@@ -257,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B6AE31E29F1953F00B8AE02 /* LaunchScreen.storyboard in Resources */,
 				6B6AE2F329F18B4E00B8AE02 /* Preview Assets.xcassets in Resources */,
 				6B6AE2F029F18B4E00B8AE02 /* Assets.xcassets in Resources */,
 			);
@@ -491,7 +495,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -524,7 +528,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
