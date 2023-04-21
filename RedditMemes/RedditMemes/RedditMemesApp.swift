@@ -11,11 +11,13 @@ import SwiftUI
 struct RedditMemesApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let initialSettings = InitialSettings()
+    let locationManager = LocationManager()
 
     var body: some Scene {
         WindowGroup {
             InitialView()
                 .environmentObject(initialSettings)
+                .environmentObject(locationManager)
         }
     }
 }

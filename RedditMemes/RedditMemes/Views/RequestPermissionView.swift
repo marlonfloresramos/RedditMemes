@@ -11,6 +11,7 @@ struct RequestPermissionView: View {
     @StateObject var viewModel: RequestPermissionViewModel
     @State var goToNextScreen: Bool = false
     @EnvironmentObject var initialSettings: InitialSettings
+    @EnvironmentObject var locationManager: LocationManager
 
     var body: some View {
         ZStack {
@@ -32,16 +33,12 @@ struct RequestPermissionView: View {
                 VStack(spacing: 24) {
                     CustomButton(type: .primary, label: viewModel.page.primaryButton) {
                         viewModel.requestPermission { _ in
-                            viewModel.goToNextScreen {
-                                goToNextScreen = true
-                            }
+                            validatePermission()
                         }
                     }
                     .frame(height: 50)
                     CustomButton(type: .clear, label: viewModel.page.secondaryButton) {
-                        viewModel.goToNextScreen {
-                            goToNextScreen = true
-                        }
+                        toNextScreen()
                     }
                     .frame(height: 50)
                 }
@@ -49,6 +46,31 @@ struct RequestPermissionView: View {
             }
             .padding(.horizontal, 60)
         .navigationBarBackButtonHidden(true)
+        }
+        .onChange(of: locationManager.authorizationStatus) { _ in
+            toNextScreen()
+        }
+    }
+
+    func validatePermission() {
+        if viewModel.page.type == .location {
+            if locationManager.authorizationStatus == .notDetermined {
+                locationManager.requestAuthorization()
+            } else if locationManager.authorizationStatus == .denied {
+                viewModel.permissionsManager.goToSettings {
+                    toNextScreen()
+                }
+            } else {
+                toNextScreen()
+            }
+        } else {
+            toNextScreen()
+        }
+    }
+
+    func toNextScreen() {
+        viewModel.goToNextScreen {
+            goToNextScreen = true
         }
     }
 

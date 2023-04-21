@@ -54,7 +54,7 @@ class RequestPermissionViewModel: ObservableObject {
     var page: RequestPermissionPage {
         return pages[currentPage]
     }
-    
+
     func requestPermission(completion: @escaping (Bool) -> ()) {
         switch page.type {
         case .camera:
@@ -66,7 +66,7 @@ class RequestPermissionViewModel: ObservableObject {
                 completion(accessGranted)
             }
         default:
-            return
+            completion(false)
         }
     }
 
