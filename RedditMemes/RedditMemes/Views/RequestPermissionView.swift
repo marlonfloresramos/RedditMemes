@@ -50,6 +50,9 @@ struct RequestPermissionView: View {
         .onChange(of: locationManager.authorizationStatus) { _ in
             toNextScreen()
         }
+        .onAppear {
+            viewModel.saveOnboardingCompleted()
+        }
     }
 
     func validatePermission() {

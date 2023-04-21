@@ -9,6 +9,11 @@ import SwiftUI
 
 struct InitialView: View {
     @EnvironmentObject var initialSettings: InitialSettings
+    var persistanceManager: DefaultsManagerRepresentable
+
+    init(persistanceManager: DefaultsManagerRepresentable = DefaultsManager.shared) {
+        self.persistanceManager = persistanceManager
+    }
 
     var body: some View {
         switch initialSettings.state {
@@ -35,7 +40,7 @@ struct InitialView: View {
     }
 
     private func getRequestPermissionView() -> AnyView {
-        return AnyView(
+        return persistanceManager.onboardingCompleted ? getHomeView() : AnyView(
             NavigationStack {
                 RequestPermissionView(viewModel: RequestPermissionViewModel {
                     initialSettings.state = .showHome

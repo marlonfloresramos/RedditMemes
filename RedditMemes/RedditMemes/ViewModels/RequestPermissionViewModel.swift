@@ -15,10 +15,15 @@ enum RequestPages {
 
 class RequestPermissionViewModel: ObservableObject {
     let permissionsManager: PermissionsManagerRepresentable
+    let persistanceManager: DefaultsManagerRepresentable
     let flowComplete: () -> Void
 
-    init(permissionsManager: PermissionsManagerRepresentable = PermissionsManager.shared, flowComplete: @escaping () -> Void) {
+    init(permissionsManager: PermissionsManagerRepresentable = PermissionsManager.shared,
+         persistanceManager: DefaultsManagerRepresentable = DefaultsManager.shared,
+         flowComplete: @escaping () -> Void
+    ) {
         self.permissionsManager = permissionsManager
+        self.persistanceManager = persistanceManager
         self.flowComplete = flowComplete
     }
 
@@ -79,4 +84,9 @@ class RequestPermissionViewModel: ObservableObject {
         }
     }
 
+    func saveOnboardingCompleted() {
+        if currentPage == pages.count - 1 {
+            persistanceManager.saveObject(object: true, key: .finishOnboarding)
+        }
+    }
 }
