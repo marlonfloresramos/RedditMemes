@@ -30,6 +30,9 @@ struct HomeView: View {
                         }
                     }
                 }
+                .refreshable {
+                    viewModel.fetchInitialData()
+                }
             }
         }
         .searchable(text: $viewModel.searchText)
