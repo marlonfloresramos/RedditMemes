@@ -13,37 +13,41 @@ class HomeViewModel: ObservableObject {
     @Published var searchText = ""
     @Published var isLoading: Bool = false
     @Published var isCompleteLoading: Bool = false
-    var after: String? = nil
+    var after: String?
     var task: Task? = Task {}
-    
+
     init(serviceManager: APIClient = APIClient.shared) {
         self.serviceManager = serviceManager
         fetchInitialData()
     }
     
+    var noResults: Bool {
+        return posts.count == 0 && isCompleteLoading
+    }
+
     func isLastModel(post: RedditPost) -> Bool {
         return post.id == posts.last?.id
     }
-    
+
     func fetchMoreData() {
         guard let _ = after else { return }
         guard !isLoading else { return }
         self.fetchData()
     }
-    
+
     func fetchInitialData() {
         if isLoading {
             task?.cancel()
             print("cancel fetch")
         }
-        
+
         posts.removeAll()
         after = nil
         isLoading = false
         isCompleteLoading = false
         fetchData()
     }
-    
+
     func fetchData() {
         isLoading = true
         task = Task {

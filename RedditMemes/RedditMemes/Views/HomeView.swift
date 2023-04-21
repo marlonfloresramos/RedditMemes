@@ -12,16 +12,20 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.posts) { post in
-                        VStack {
-                            HomeCardView(post: post)
-                            if viewModel.isLastModel(post: post) && !viewModel.isCompleteLoading {
-                                ProgressView()
-                                    .onAppear {
-                                        viewModel.fetchMoreData()
-                                    }
+            if viewModel.noResults {
+                NoResultsView()
+            } else {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.posts) { post in
+                            VStack {
+                                HomeCardView(post: post)
+                                if viewModel.isLastModel(post: post) && !viewModel.isCompleteLoading {
+                                    ProgressView()
+                                        .onAppear {
+                                            viewModel.fetchMoreData()
+                                        }
+                                }
                             }
                         }
                     }
