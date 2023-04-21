@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
+    @FocusState var isTextFieldFocused: Bool
 
     var searchBar: some View {
         HStack {
@@ -16,6 +17,7 @@ struct HomeView: View {
             TextField("Search", text: $viewModel.searchText)
                 .font(Font.system(size: 16))
                 .foregroundColor(CustomColor.searchText)
+                .focused($isTextFieldFocused)
         }
         .padding(10)
         .background(CustomColor.searchBackground)
@@ -29,7 +31,9 @@ struct HomeView: View {
                 if viewModel.noResults {
                     NoResultsView()
                 } else {
-                    ScrollView {
+                    CustomScrollView(showsIndicators: false) { _ in
+                        isTextFieldFocused = false
+                    } content: {
                         LazyVStack {
                             ForEach(viewModel.posts) { post in
                                 VStack {
@@ -44,7 +48,6 @@ struct HomeView: View {
                             }
                         }
                     }
-                    .scrollIndicators(.hidden)
                     .refreshable {
                         viewModel.fetchInitialData()
                     }
