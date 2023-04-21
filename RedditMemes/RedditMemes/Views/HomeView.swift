@@ -31,10 +31,8 @@ struct HomeView: View {
                 if viewModel.noResults {
                     NoResultsView()
                 } else {
-                    CustomScrollView(showsIndicators: false) { _ in
-                        isTextFieldFocused = false
-                    } content: {
-                        LazyVStack {
+                    CustomScrollView(showsIndicators: false) { _ in } content: {
+                        LazyVStack(spacing: 20) {
                             ForEach(viewModel.posts) { post in
                                 VStack {
                                     HomeCardView(post: post)
@@ -47,6 +45,12 @@ struct HomeView: View {
                                 }
                             }
                         }
+                        .gesture(
+                           DragGesture(minimumDistance: 1, coordinateSpace: .global)
+                             .onChanged { _ in
+                                 isTextFieldFocused = false
+                             }
+                         )
                     }
                     .refreshable {
                         viewModel.fetchInitialData()
@@ -54,7 +58,6 @@ struct HomeView: View {
                 }
             }
             .padding(.horizontal, 20)
-
         }
         .onAppear {
             UITextField.appearance().clearButtonMode = .whileEditing
