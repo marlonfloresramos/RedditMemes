@@ -11,9 +11,10 @@ class HomeViewModel: ObservableObject {
     let serviceManager: APIClient
     @Published var posts = [RedditPost]()
     @Published var searchText = ""
-    var after: String? = nil
     @Published var isLoading: Bool = false
     @Published var isCompleteLoading: Bool = false
+    var after: String? = nil
+    var task: Task? = Task {}
     
     init(serviceManager: APIClient = APIClient.shared) {
         self.serviceManager = serviceManager
@@ -32,7 +33,7 @@ class HomeViewModel: ObservableObject {
     
     func fetchInitialData() {
         if isLoading {
-//            serviceManager.cancelFetchData()
+            task?.cancel()
             print("cancel fetch")
         }
         
@@ -45,22 +46,22 @@ class HomeViewModel: ObservableObject {
     
     func fetchData() {
         isLoading = true
-        Task {
+        task = Task {
             var response: RedditResponse?
             if searchText.count > 0 {
                 do {
                     response = try await serviceManager.searchPosts(
                         search: searchText,
                         after: after)
-                } catch {
-                    
+                } catch(let error) {
+                    print(error)
                 }
             } else {
                 do {
                     response = try await serviceManager.getPosts(
                         after: after)
-                } catch {
-                    
+                } catch(let error) {
+                    print(error)
                 }
             }
             let newPosts = response?.data?.children ?? [RedditPost]()
@@ -69,8 +70,19 @@ class HomeViewModel: ObservableObject {
                 { $0.data?.linkFlairText == "Shitposting" && $0.data?.postHint == "image" })
             DispatchQueue.main.async {
                 self.after = after
-                self.posts.append(contentsOf: filteredPosts)
-                self.isLoading = false
+                print(filteredPosts.count)
+                print(self.after)
+                if filteredPosts.count == 0 && after != nil {
+                    self.fetchData()
+                    print("recursive")
+                } else {
+                    self.posts.append(contentsOf: filteredPosts)
+                    self.isLoading = false
+                    if after == nil {
+                        self.isCompleteLoading = true
+                        print("completed")
+                    }
+                }
             }
         }
     }

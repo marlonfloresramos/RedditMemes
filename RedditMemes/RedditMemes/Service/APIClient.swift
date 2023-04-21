@@ -128,36 +128,4 @@ final class APIClient {
             throw error
         }
     }
-
-//    static func weatherRequest(city: String) async throws -> WeatherModel? {
-//
-//        guard let urlRequest = urlRequestBuilder(endPoint: WeatherEndpoint.getWeatherByCity(city: city)) else { throw URLError(.fileDoesNotExist)}
-//        do {
-//            var model = try await apiRequest(WeatherModel.self, urlRequest: urlRequest)
-//            let iconType = model?.weatherDetails.first?.icon ?? ""
-//            if let imageUrlRequest = urlRequestBuilder(endPoint: WeatherEndpoint.getWeatherIcon(iconType: iconType)) {
-//                let (imageData, _) = try await URLSession.shared.data(for: imageUrlRequest)
-//                model?.iconData = imageData
-//            }
-//            return model
-//        } catch let error {
-//            throw error
-//        }
-//
-//    }
-    
-//    static func weatherRequest(lat: Double, lon: Double) async throws -> WeatherModel? {
-//        guard let urlRequest = urlRequestBuilder(endPoint: WeatherEndpoint.getWeatherByCoordinates(lat: String(lat), lon: String(lon))) else { throw URLError(.fileDoesNotExist)}
-//        do {
-//            var model = try await apiRequest(WeatherModel.self, urlRequest: urlRequest)
-//            let iconType = model?.weatherDetails.first?.icon ?? ""
-//            if let imageUrlRequest = urlRequestBuilder(endPoint: WeatherEndpoint.getWeatherIcon(iconType: iconType)) {
-//                let (imageData, _) = try await URLSession.shared.data(for: imageUrlRequest)
-//                model?.iconData = imageData
-//            }
-//            return model
-//        } catch let error {
-//            throw error
-//        }
-//    }
 }
