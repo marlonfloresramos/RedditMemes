@@ -49,7 +49,7 @@ struct InitialView: View {
 
     private func getHomeView() -> AnyView {
         return AnyView(
-            HomeView()
+            HomeView(viewModel: HomeViewModel())
                 .transition(
                     AnyTransition.move(edge: .bottom)
                         .combined(with: .opacity)

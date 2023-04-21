@@ -27,7 +27,7 @@ class PermissionsManager: NSObject, PermissionsManagerRepresentable {
              }
          })
      }
-    
+
     func requestPushNotificationsPermission(completion: @escaping (Bool) -> Void) {
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
                   UNUserNotificationCenter.current().requestAuthorization(
