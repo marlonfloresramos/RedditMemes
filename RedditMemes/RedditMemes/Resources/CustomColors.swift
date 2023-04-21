@@ -14,4 +14,6 @@ struct CustomColor {
     )
 
     static let orange2 = Color("Colors/orange2")
+    static let searchBackground = Color("Colors/searchBackground")
+    static let searchText = Color("Colors/searchText")
 }

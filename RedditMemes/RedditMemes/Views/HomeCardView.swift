@@ -14,17 +14,17 @@ struct HomeCardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(.white)
-                .shadow(radius: 8)
+                .shadow(radius: 4)
             VStack {
                 AsyncImage(url: URL(string: post.data?.url ?? "")) { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 340, height: 170, alignment: .center)
+                        .frame(height: 170, alignment: .center)
                         .clipped()
                         .cornerRadius(8, corners: [.topLeft, .topRight])
                 } placeholder: {
                     ProgressView()
-                        .frame(width: 340, height: 170, alignment: .center)
+                        .frame(height: 170, alignment: .center)
                 }
                 HStack(alignment: .top) {
                     VStack(spacing: 4) {
@@ -49,15 +49,13 @@ struct HomeCardView: View {
                         }
                     }
                     Spacer(minLength: 0)
-                    
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
             }
         }
-        .frame(maxWidth: 340)
-
+        .padding(.horizontal, 6)
     }
 }
 

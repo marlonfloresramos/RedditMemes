@@ -10,32 +10,52 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
 
+    var searchBar: some View {
+        HStack {
+            Image(systemName: "magnifyingglass").foregroundColor(CustomColor.searchText)
+            TextField("Search", text: $viewModel.searchText)
+                .font(Font.system(size: 16))
+                .foregroundColor(CustomColor.searchText)
+        }
+        .padding(10)
+        .background(CustomColor.searchBackground)
+        .cornerRadius(4)
+    }
+
     var body: some View {
         NavigationStack {
-            if viewModel.noResults {
-                NoResultsView()
-            } else {
-                ScrollView {
-                    LazyVStack {
-                        ForEach(viewModel.posts) { post in
-                            VStack {
-                                HomeCardView(post: post)
-                                if viewModel.isLastModel(post: post) && !viewModel.isCompleteLoading {
-                                    ProgressView()
-                                        .onAppear {
-                                            viewModel.fetchMoreData()
-                                        }
+            VStack(spacing: 16) {
+                searchBar
+                if viewModel.noResults {
+                    NoResultsView()
+                } else {
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(viewModel.posts) { post in
+                                VStack {
+                                    HomeCardView(post: post)
+                                    if viewModel.isLastModel(post: post) && !viewModel.isCompleteLoading {
+                                        ProgressView()
+                                            .onAppear {
+                                                viewModel.fetchMoreData()
+                                            }
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                .refreshable {
-                    viewModel.fetchInitialData()
+                    .scrollIndicators(.hidden)
+                    .refreshable {
+                        viewModel.fetchInitialData()
+                    }
                 }
             }
+            .padding(.horizontal, 20)
+
         }
-        .searchable(text: $viewModel.searchText)
+        .onAppear {
+            UITextField.appearance().clearButtonMode = .whileEditing
+        }
         .onChange(of: viewModel.searchText) { _ in viewModel.fetchInitialData()}
     }
 }
