@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     @FocusState var isTextFieldFocused: Bool
+    @State var showSettings: Bool = false
 
     var searchBar: some View {
         HStack {
@@ -27,6 +28,17 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 16) {
+                HStack {
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Image(systemName: "gear")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(CustomColor.searchText)
+                    }
+                    Spacer()
+                }
                 searchBar
                 if viewModel.noResults {
                     NoResultsView()
@@ -63,6 +75,24 @@ struct HomeView: View {
             UITextField.appearance().clearButtonMode = .whileEditing
         }
         .onChange(of: viewModel.searchText) { _ in viewModel.fetchInitialData()}
+        .fullScreenCover(isPresented: $showSettings) {
+            getRequestPermissionView()
+        }
+    }
+
+    private func getRequestPermissionView() -> AnyView {
+        return AnyView(
+            NavigationStack {
+                RequestPermissionView(viewModel: RequestPermissionViewModel {
+                    self.showSettings = false
+                })
+            }
+            .transition(
+                AnyTransition.move(edge: .bottom)
+                .combined(with: .opacity)
+                .animation(.easeInOut(duration: 0.3))
+            )
+        )
     }
 }
 

@@ -15,9 +15,11 @@ enum RequestPages {
 
 class RequestPermissionViewModel: ObservableObject {
     let permissionsManager: PermissionsManagerRepresentable
+    let flowComplete: () -> Void
 
-    init(permissionsManager: PermissionsManagerRepresentable = PermissionsManager.shared) {
+    init(permissionsManager: PermissionsManagerRepresentable = PermissionsManager.shared, flowComplete: @escaping () -> Void) {
         self.permissionsManager = permissionsManager
+        self.flowComplete = flowComplete
     }
 
     var pages: [RequestPermissionPage] = [
@@ -68,9 +70,9 @@ class RequestPermissionViewModel: ObservableObject {
         }
     }
 
-    func goToNextScreen(next: () -> Void, flowFinished: () -> Void) {
+    func goToNextScreen(next: () -> Void) {
         if currentPage == pages.count - 1 {
-            flowFinished()
+            flowComplete()
         } else {
             currentPage += 1
             next()

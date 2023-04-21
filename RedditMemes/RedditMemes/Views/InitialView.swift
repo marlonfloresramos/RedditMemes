@@ -37,7 +37,9 @@ struct InitialView: View {
     private func getRequestPermissionView() -> AnyView {
         return AnyView(
             NavigationStack {
-                RequestPermissionView(viewModel: RequestPermissionViewModel())
+                RequestPermissionView(viewModel: RequestPermissionViewModel {
+                    initialSettings.state = .showHome
+                })
             }
             .transition(
                 AnyTransition.move(edge: .bottom)

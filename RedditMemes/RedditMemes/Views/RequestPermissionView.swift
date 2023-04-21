@@ -34,8 +34,6 @@ struct RequestPermissionView: View {
                         viewModel.requestPermission { _ in
                             viewModel.goToNextScreen {
                                 goToNextScreen = true
-                            } flowFinished: {
-                                initialSettings.state = .showHome
                             }
                         }
                     }
@@ -43,8 +41,6 @@ struct RequestPermissionView: View {
                     CustomButton(type: .clear, label: viewModel.page.secondaryButton) {
                         viewModel.goToNextScreen {
                             goToNextScreen = true
-                        } flowFinished: {
-                            initialSettings.state = .showHome
                         }
                     }
                     .frame(height: 50)
@@ -65,6 +61,6 @@ struct RequestPermissionView: View {
 
 struct RequestPermissionView_Previews: PreviewProvider {
     static var previews: some View {
-        RequestPermissionView(viewModel: RequestPermissionViewModel())
+        RequestPermissionView(viewModel: RequestPermissionViewModel {})
     }
 }
