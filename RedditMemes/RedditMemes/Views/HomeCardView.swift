@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeCardView: View {
     let post: RedditPost
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
@@ -39,12 +39,14 @@ struct HomeCardView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         Text(post.data?.title ?? "")
                             .font(.system(size: 18))
+                            .foregroundColor(CustomColor.text)
                             .lineLimit(2)
                         HStack(spacing: 4) {
                             Image(systemName: "message.fill")
                                 .foregroundColor(.gray)
                             Text("\(post.data?.numberOfComments ?? 0)")
                                 .font(.system(size: 12))
+                                .foregroundColor(CustomColor.text)
                             .foregroundColor(.gray)
                         }
                     }
@@ -59,8 +61,8 @@ struct HomeCardView: View {
     }
 }
 
-//struct HomeCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeCardView()
-//    }
-//}
+struct HomeCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeCardView(post: RedditPost(data: nil))
+    }
+}

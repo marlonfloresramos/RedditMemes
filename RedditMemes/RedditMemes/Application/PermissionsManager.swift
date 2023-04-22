@@ -47,7 +47,7 @@ class PermissionsManager: NSObject, PermissionsManagerRepresentable {
                     options: authOptions,
                     completionHandler: {granted, _ in completion(granted)})
             } else if settings.authorizationStatus == .denied {
-                self?.goToSettings() {
+                self?.goToSettings {
                     completion(false)
                 }
             } else if settings.authorizationStatus == .authorized {
@@ -59,13 +59,13 @@ class PermissionsManager: NSObject, PermissionsManagerRepresentable {
 //            options: authOptions,
 //            completionHandler: {granted, _ in completion(granted)})
     }
-    
-    func goToSettings(completion: @escaping () -> ()) {
+
+    func goToSettings(completion: @escaping () -> Void) {
         let bundleId = Bundle.main.bundleIdentifier ?? ""
         if let url = URL(string: "\(UIApplication.openSettingsURLString)\(bundleId)"),
            UIApplication.shared.canOpenURL(url) {
             DispatchQueue.main.async {
-                UIApplication.shared.open(url, options: [:], completionHandler : { _ in
+                UIApplication.shared.open(url, options: [:], completionHandler: { _ in
                     completion()
                 })
             }

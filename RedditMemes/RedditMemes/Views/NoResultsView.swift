@@ -10,7 +10,7 @@ import SwiftUI
 struct NoResultsView: View {
     var body: some View {
         ZStack {
-            Color.white
+            CustomColor.background
                 .ignoresSafeArea()
             VStack(spacing: 48) {
                 Image("NoResults/search")
@@ -20,8 +20,10 @@ struct NoResultsView: View {
                 VStack(spacing: 8) {
                     Text("No Results ")
                         .font(Font.system(size: 20).weight(.semibold))
+                        .foregroundColor(CustomColor.text)
                     Text("Sorry, there are no results for this search. Please try another phrase")
                         .font(Font.system(size: 15).weight(.regular))
+                        .foregroundColor(CustomColor.text)
                         .multilineTextAlignment(.center)
                 }
                 .frame(maxWidth: 195)

@@ -20,7 +20,7 @@ class HomeViewModel: ObservableObject {
         self.serviceManager = serviceManager
         fetchInitialData()
     }
-    
+
     var noResults: Bool {
         return posts.count == 0 && isCompleteLoading
     }
@@ -30,7 +30,7 @@ class HomeViewModel: ObservableObject {
     }
 
     func fetchMoreData() {
-        guard let _ = after else { return }
+        guard after != nil else { return }
         guard !isLoading else { return }
         self.fetchData()
     }
@@ -57,21 +57,22 @@ class HomeViewModel: ObservableObject {
                     response = try await serviceManager.searchPosts(
                         search: searchText,
                         after: after)
-                } catch(let error) {
+                } catch let error {
                     print(error)
                 }
             } else {
                 do {
                     response = try await serviceManager.getPosts(
                         after: after)
-                } catch(let error) {
+                } catch let error {
                     print(error)
                 }
             }
             let newPosts = response?.data?.children ?? [RedditPost]()
             let after = response?.data?.after
             let filteredPosts = newPosts.filter(
-                { $0.data?.linkFlairText == "Shitposting" && $0.data?.postHint == "image" })
+                {$0.data?.linkFlairText == "Shitposting" && $0.data?.postHint == "image"}
+            )
             DispatchQueue.main.async {
                 self.after = after
                 print(filteredPosts.count)

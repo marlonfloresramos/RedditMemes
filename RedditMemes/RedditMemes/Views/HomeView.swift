@@ -31,49 +31,53 @@ struct HomeView: View {
             WithoutNetworkView()
         } else {
             NavigationStack {
-                VStack(spacing: 16) {
-                    HStack {
-                        Button {
-                            showSettings = true
-                        } label: {
-                            Image(systemName: "gear")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(CustomColor.searchText)
+                ZStack {
+                    CustomColor.background
+                        .ignoresSafeArea()
+                    VStack(spacing: 16) {
+                        HStack {
+                            Button {
+                                showSettings = true
+                            } label: {
+                                Image(systemName: "gear")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(CustomColor.searchText)
+                            }
+                            Spacer()
                         }
-                        Spacer()
-                    }
-                    searchBar
-                    if viewModel.noResults {
-                        NoResultsView()
-                    } else {
-                        CustomScrollView(showsIndicators: false) { _ in } content: {
-                            LazyVStack(spacing: 20) {
-                                ForEach(viewModel.posts) { post in
-                                    VStack {
-                                        HomeCardView(post: post)
-                                        if viewModel.isLastModel(post: post) && !viewModel.isCompleteLoading {
-                                            ProgressView()
-                                                .onAppear {
-                                                    viewModel.fetchMoreData()
-                                                }
+                        searchBar
+                        if viewModel.noResults {
+                            NoResultsView()
+                        } else {
+                            CustomScrollView(showsIndicators: false) { _ in } content: {
+                                LazyVStack(spacing: 20) {
+                                    ForEach(viewModel.posts) { post in
+                                        VStack {
+                                            HomeCardView(post: post)
+                                            if viewModel.isLastModel(post: post) && !viewModel.isCompleteLoading {
+                                                ProgressView()
+                                                    .onAppear {
+                                                        viewModel.fetchMoreData()
+                                                    }
+                                            }
                                         }
                                     }
                                 }
+                                .gesture(
+                                    DragGesture(minimumDistance: 1, coordinateSpace: .global)
+                                        .onChanged { _ in
+                                            isTextFieldFocused = false
+                                        }
+                                )
                             }
-                            .gesture(
-                                DragGesture(minimumDistance: 1, coordinateSpace: .global)
-                                    .onChanged { _ in
-                                        isTextFieldFocused = false
-                                    }
-                            )
-                        }
-                        .refreshable {
-                            viewModel.fetchInitialData()
+                            .refreshable {
+                                viewModel.fetchInitialData()
+                            }
                         }
                     }
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
             }
             .onAppear {
                 UITextField.appearance().clearButtonMode = .whileEditing

@@ -12,34 +12,41 @@ struct OnboardingPageView: View {
     let page: OnboardingPage
 
     var body: some View {
-        VStack(spacing: 54) {
-            VStack(spacing: 46) {
-                Image(page.imageName)
+        ZStack {
+            CustomColor.background
+                .ignoresSafeArea()
+            VStack(spacing: 54) {
+                VStack(spacing: 46) {
+                    Image(page.imageName)
+                    VStack(spacing: 23) {
+                        Text(page.title)
+                            .font(Font.system(size: 36).weight(.semibold))
+                            .foregroundColor(CustomColor.text)
+                        Text(page.subTitle)
+                            .font(Font.system(size: 16).weight(.regular))
+                            .foregroundColor(CustomColor.text)
+                    }
+                }
                 VStack(spacing: 23) {
-                    Text(page.title)
-                        .font(Font.system(size: 36).weight(.semibold))
-                    Text(page.subTitle)
-                        .font(Font.system(size: 16).weight(.regular))
-                }
-            }
-            VStack(spacing: 23) {
-                HStack {
-                    CustomButton(type: .primary, label: "Sign In") {
-                        //
+                    HStack {
+                        CustomButton(type: .primary, label: "Sign In") {
+                            initialSettings.state = .showRequestPermission
+                        }
+                        Spacer(minLength: 40)
+                        CustomButton(type: .secondary, label: "Register") {
+                            initialSettings.state = .showRequestPermission
+                        }
                     }
-                    Spacer(minLength: 40)
-                    CustomButton(type: .secondary, label: "Register") {
-                        //
+                    Button {
+                        initialSettings.state = .showRequestPermission
+                    } label: {
+                        Text("Continue as a GUEST")
+                            .foregroundColor(Color.black)
                     }
-                }
-                Button {
-                    initialSettings.state = .showRequestPermission
-                } label: {
-                    Text("Continue as a GUEST")
-                        .foregroundColor(Color.black)
                 }
             }
         }
+
     }
 }
 

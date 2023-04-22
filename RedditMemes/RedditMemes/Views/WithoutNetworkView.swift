@@ -9,16 +9,22 @@ import SwiftUI
 
 struct WithoutNetworkView: View {
     var body: some View {
-        VStack(spacing: 24) {
-            Image(systemName: "exclamationmark.triangle")
-                .resizable()
-                .frame(width: 100, height: 100)
-                .foregroundColor(.yellow)
-            Text("Network connection seems to be offline")
-                .font(.system(size: 24))
-                .multilineTextAlignment(.center)
+        ZStack {
+            CustomColor.background
+                .ignoresSafeArea()
+            VStack(spacing: 24) {
+                Image(systemName: "exclamationmark.triangle")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .foregroundColor(.yellow)
+                Text("Network connection seems to be offline")
+                    .font(.system(size: 24))
+                    .foregroundColor(CustomColor.text)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.horizontal, 20)
         }
-        .padding(.horizontal, 20)
+        
     }
 }
 

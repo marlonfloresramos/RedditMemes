@@ -76,9 +76,9 @@ enum RedditEndpoint: EndpointRepresentable {
 }
 
 final class APIClient {
-    
+
     static let shared = APIClient()
-    
+
     private init() {
     }
 
@@ -108,7 +108,11 @@ final class APIClient {
     }
 
     func getPosts(after: String?) async throws -> RedditResponse? {
-        guard let urlRequest = urlRequestBuilder(endPoint: RedditEndpoint.getPosts(after: after)) else { throw URLError(.fileDoesNotExist) }
+        guard let urlRequest = urlRequestBuilder(
+            endPoint: RedditEndpoint.getPosts(after: after))
+        else {
+            throw URLError(.fileDoesNotExist)
+        }
 
         do {
             let model = try await apiRequest(RedditResponse.self, urlRequest: urlRequest)
@@ -117,9 +121,13 @@ final class APIClient {
             throw error
         }
     }
-    
+
     func searchPosts(search: String, after: String?) async throws -> RedditResponse? {
-        guard let urlRequest = urlRequestBuilder(endPoint: RedditEndpoint.searchPosts(search: search, after: after)) else { throw URLError(.fileDoesNotExist) }
+        guard let urlRequest = urlRequestBuilder(
+            endPoint: RedditEndpoint.searchPosts(search: search, after: after))
+        else {
+            throw URLError(.fileDoesNotExist)
+        }
 
         do {
             let model = try await apiRequest(RedditResponse.self, urlRequest: urlRequest)

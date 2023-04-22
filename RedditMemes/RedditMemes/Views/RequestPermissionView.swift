@@ -26,9 +26,11 @@ struct RequestPermissionView: View {
                 VStack(spacing: 8) {
                     Text(viewModel.page.title)
                         .font(Font.system(size: 20).weight(.semibold))
+                        .foregroundColor(CustomColor.text)
                     Text(viewModel.page.subTitle)
                         .font(Font.system(size: 15).weight(.regular))
                         .multilineTextAlignment(.center)
+                        .foregroundColor(CustomColor.text)
                 }
                 VStack(spacing: 24) {
                     CustomButton(type: .primary, label: viewModel.page.primaryButton) {

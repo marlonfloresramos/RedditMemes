@@ -11,14 +11,18 @@ struct OnboardingView: View {
     @StateObject var viewModel: OnboardingViewModel
 
     var body: some View {
-        TabView {
-            ForEach(viewModel.pages) { page in
-                OnboardingPageView(page: page)
+        ZStack {
+            CustomColor.background
+                .ignoresSafeArea()
+            TabView {
+                ForEach(viewModel.pages) { page in
+                    OnboardingPageView(page: page)
+                }
             }
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
+            .padding(20)
         }
-        .tabViewStyle(.page)
-        .indexViewStyle(.page(backgroundDisplayMode: .always))
-        .padding(20)
     }
 }
 

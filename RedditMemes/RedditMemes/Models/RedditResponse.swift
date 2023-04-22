@@ -20,7 +20,12 @@ class RedditData: Codable {
 class RedditPost: Codable, Identifiable {
     var id = UUID()
     let data: PostData?
-    
+
+    init(id: UUID = UUID(), data: PostData?) {
+        self.id = id
+        self.data = data
+    }
+
     enum CodingKeys: String, CodingKey {
         case data
     }
@@ -33,7 +38,16 @@ class PostData: Codable {
     let linkFlairText: String?
     let postHint: String?
     let url: String?
-    
+
+    init(title: String?, score: Int?, numberOfComments: Int?, linkFlairText: String?, postHint: String?, url: String?) {
+        self.title = title
+        self.score = score
+        self.numberOfComments = numberOfComments
+        self.linkFlairText = linkFlairText
+        self.postHint = postHint
+        self.url = url
+    }
+
     enum CodingKeys: String, CodingKey {
         case title
         case score
