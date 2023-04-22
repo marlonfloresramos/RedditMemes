@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var networkMonitor: NetworkMonitor
     @ObservedObject var viewModel: HomeViewModel
     @FocusState var isTextFieldFocused: Bool
     @State var showSettings: Bool = false
@@ -26,57 +27,61 @@ struct HomeView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 16) {
-                HStack {
-                    Button {
-                        showSettings = true
-                    } label: {
-                        Image(systemName: "gear")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(CustomColor.searchText)
+        if !networkMonitor.isConnected {
+            WithoutNetworkView()
+        } else {
+            NavigationStack {
+                VStack(spacing: 16) {
+                    HStack {
+                        Button {
+                            showSettings = true
+                        } label: {
+                            Image(systemName: "gear")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(CustomColor.searchText)
+                        }
+                        Spacer()
                     }
-                    Spacer()
-                }
-                searchBar
-                if viewModel.noResults {
-                    NoResultsView()
-                } else {
-                    CustomScrollView(showsIndicators: false) { _ in } content: {
-                        LazyVStack(spacing: 20) {
-                            ForEach(viewModel.posts) { post in
-                                VStack {
-                                    HomeCardView(post: post)
-                                    if viewModel.isLastModel(post: post) && !viewModel.isCompleteLoading {
-                                        ProgressView()
-                                            .onAppear {
-                                                viewModel.fetchMoreData()
-                                            }
+                    searchBar
+                    if viewModel.noResults {
+                        NoResultsView()
+                    } else {
+                        CustomScrollView(showsIndicators: false) { _ in } content: {
+                            LazyVStack(spacing: 20) {
+                                ForEach(viewModel.posts) { post in
+                                    VStack {
+                                        HomeCardView(post: post)
+                                        if viewModel.isLastModel(post: post) && !viewModel.isCompleteLoading {
+                                            ProgressView()
+                                                .onAppear {
+                                                    viewModel.fetchMoreData()
+                                                }
+                                        }
                                     }
                                 }
                             }
+                            .gesture(
+                                DragGesture(minimumDistance: 1, coordinateSpace: .global)
+                                    .onChanged { _ in
+                                        isTextFieldFocused = false
+                                    }
+                            )
                         }
-                        .gesture(
-                           DragGesture(minimumDistance: 1, coordinateSpace: .global)
-                             .onChanged { _ in
-                                 isTextFieldFocused = false
-                             }
-                         )
-                    }
-                    .refreshable {
-                        viewModel.fetchInitialData()
+                        .refreshable {
+                            viewModel.fetchInitialData()
+                        }
                     }
                 }
+                .padding(.horizontal, 20)
             }
-            .padding(.horizontal, 20)
-        }
-        .onAppear {
-            UITextField.appearance().clearButtonMode = .whileEditing
-        }
-        .onChange(of: viewModel.searchText) { _ in viewModel.fetchInitialData()}
-        .fullScreenCover(isPresented: $showSettings) {
-            getRequestPermissionView()
+            .onAppear {
+                UITextField.appearance().clearButtonMode = .whileEditing
+            }
+            .onChange(of: viewModel.searchText) { _ in viewModel.fetchInitialData()}
+            .fullScreenCover(isPresented: $showSettings) {
+                getRequestPermissionView()
+            }
         }
     }
 
@@ -97,7 +102,14 @@ struct HomeView: View {
 }
 
 struct HomeView_Previews: PreviewProvider {
+
     static var previews: some View {
         HomeView(viewModel: HomeViewModel())
+            .environmentObject(getNetWork())
+    }
+
+    static func getNetWork() -> NetworkMonitor {
+        let network = NetworkMonitor()
+        return network
     }
 }

@@ -38,6 +38,8 @@
 		6B6AE35029F22EEF00B8AE02 /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE34F29F22EEF00B8AE02 /* NoResultsView.swift */; };
 		6B6AE35229F2C51600B8AE02 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AE35129F2C51600B8AE02 /* CustomScrollView.swift */; };
 		6BA266A029F31625004CF5C5 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA2669F29F31625004CF5C5 /* DefaultsManager.swift */; };
+		6BC40EB829F3283C001411B7 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC40EB729F3283C001411B7 /* NetworkMonitor.swift */; };
+		6BC40EBC29F380B3001411B7 /* WithoutNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC40EBB29F380B3001411B7 /* WithoutNetworkView.swift */; };
 		6BC8C91A29F2DDA800F27F1C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC8C91929F2DDA800F27F1C /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		6B6AE34F29F22EEF00B8AE02 /* NoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsView.swift; sourceTree = "<group>"; };
 		6B6AE35129F2C51600B8AE02 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		6BA2669F29F31625004CF5C5 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
+		6BC40EB729F3283C001411B7 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		6BC40EBB29F380B3001411B7 /* WithoutNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithoutNetworkView.swift; sourceTree = "<group>"; };
 		6BC8C91929F2DDA800F27F1C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6E1FF26989D7AA1051EF8476 /* Pods-RedditMemes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditMemes.release.xcconfig"; path = "Target Support Files/Pods-RedditMemes/Pods-RedditMemes.release.xcconfig"; sourceTree = "<group>"; };
 		F6A588267F183C751A385075 /* Pods-RedditMemes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditMemes.debug.xcconfig"; path = "Target Support Files/Pods-RedditMemes/Pods-RedditMemes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				6B6AE33D29F1F14B00B8AE02 /* PermissionsManager.swift */,
 				6BC8C91929F2DDA800F27F1C /* LocationManager.swift */,
 				6BA2669F29F31625004CF5C5 /* DefaultsManager.swift */,
+				6BC40EB729F3283C001411B7 /* NetworkMonitor.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				6B6AE33229F1C84D00B8AE02 /* HomeView.swift */,
 				6B6AE34D29F21AE500B8AE02 /* HomeCardView.swift */,
 				6B6AE34F29F22EEF00B8AE02 /* NoResultsView.swift */,
+				6BC40EBB29F380B3001411B7 /* WithoutNetworkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -478,7 +484,9 @@
 				6B6AE33729F1D2FA00B8AE02 /* RequestPermissionViewModel.swift in Sources */,
 				6B6AE35229F2C51600B8AE02 /* CustomScrollView.swift in Sources */,
 				6B6AE2EC29F18B4D00B8AE02 /* RedditMemesApp.swift in Sources */,
+				6BC40EB829F3283C001411B7 /* NetworkMonitor.swift in Sources */,
 				6B6AE34A29F21A6E00B8AE02 /* Extensions.swift in Sources */,
+				6BC40EBC29F380B3001411B7 /* WithoutNetworkView.swift in Sources */,
 				6B6AE32729F1AED400B8AE02 /* CustomButton.swift in Sources */,
 				6B6AE33129F1C67900B8AE02 /* InitialView.swift in Sources */,
 				6B6AE35029F22EEF00B8AE02 /* NoResultsView.swift in Sources */,
